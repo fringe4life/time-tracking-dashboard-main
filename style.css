@@ -202,7 +202,7 @@ body {
 .activity-current {
   font-size: var(--fs-card);
   font-weight: 300;
-  line-height: 1;
+  line-height: 1.25;
 }
 .activity-previous {
   color: var(--navy-200);
