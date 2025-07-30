@@ -165,7 +165,7 @@ body {
 }
 
 .activity-content {
-  margin-top: 48px;
+  margin-top: 46px;
   background: var(--navy-900);
   border-radius:  var(--card-radius);
   padding:  1.5rem; /* 32px 24px 24px 24px */
