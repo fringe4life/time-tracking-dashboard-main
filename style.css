@@ -44,7 +44,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   background: var(--navy-950);
   color: #fff;
   font-family: 'Rubik', sans-serif;
@@ -52,6 +52,7 @@ body {
   padding: 0;
   display: grid;
   place-content: center;
+  place-items: center;
 }
 
 .dashboard-grid {
@@ -59,8 +60,6 @@ body {
   grid-template-columns: repeat(4, 254px);
   grid-template-rows: repeat(2, 244px);
   gap: var(--gap);
-  max-width: 100dvw;
-  min-height: 100vh;
   padding: var(--gap);
   align-items: stretch;
   background: var(--navy-950);
