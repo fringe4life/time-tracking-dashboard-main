@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+  /* Colors from style-guide.md */
+  --purple-600: hsl(246, 80%, 60%);
+  --orange-300: hsl(15, 100%, 70%);
+  --blue-300: hsl(195, 74%, 62%);
+  --pink-400: hsl(348, 100%, 68%);
+  --green-400: hsl(145, 58%, 55%);
+  --purple-700: hsl(264, 64%, 52%);
+  --yellow-300: hsl(43, 84%, 65%);
+  --navy-950: hsl(226, 43%, 10%);
+  --navy-900: hsl(235, 46%, 20%);
+  --purple-500: hsl(235, 45%, 61%);
+  --navy-200: hsl(236, 100%, 87%);
+
+  /* Card background colors by activity */
+  --work-bg: var(--orange-300);
+  --play-bg: var(--blue-300);
+  --study-bg: var(--pink-400);
+  --exercise-bg: var(--green-400);
+  --social-bg: var(--purple-700);
+  --self-care-bg: var(--yellow-300);
+
+  /* Font sizes */
+  --fs-base: 1.125rem; /* 18px */
+  --fs-title: 1.5rem; /* 24px */
+  --fs-large: 2rem; /* 32px */
+  --fs-hero: 2.5rem; /* 40px */
+  --fs-card: 3.5rem; /* 56px */
+  --fs-small: 0.9375rem; /* 15px */
+
+  /* Spacing */
+  --gap: 2rem; /* 32px */
+  --card-radius: 0.9375rem; /* 15px */
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--navy-950);
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  place-content: center;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 254px);
+  grid-template-rows: repeat(2, 244px);
+  gap: var(--gap);
+  max-width: 100dvw;
+  min-height: 100vh;
+  padding: var(--gap);
+  align-items: stretch;
+  background: var(--navy-950);
+}
+
+.profile-card {
+  grid-row: 1 / span 2;
+  grid-column: 1 / 2;
+  background: var(--navy-900);
+  border-radius: var(--card-radius);
+  
+  overflow: hidden;
+}
+
+.profile-header {
+  background: var(--purple-600);
+  padding: 2rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: var(--card-radius) var(--card-radius) 0 0;
+  gap: 2.5rem;
+}
+.profile-img {
+  border: 3px solid #fff;
+  border-radius: 50%;
+  width: 4.875rem; 
+  aspect-ratio: 1;
+}
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.profile-report {
+  color: var(--navy-200);
+  font-size: var(--fs-small);
+}
+.profile-name {
+  font-size: var(--fs-hero);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.timeframe-selector {
+  display: grid;
+  justify-items: flex-start;
+  gap: 20px;
+  padding: 28px 32px;
+  background: transparent;
+}
+.timeframe-btn {
+  background: none;
+  border: none;
+  color: var(--purple-500);
+  font-size: var(--fs-base);
+  font-family: inherit;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.timeframe-btn.active,
+.timeframe-btn:focus,
+.timeframe-btn:hover {
+  color: #fff;
+}
+
+.activity-cards {
+  grid-row: 1 / span 2;
+  grid-column: 2 / 5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--gap);
+}
+
+.activity-card {
+  position: relative;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+ display: grid;
+  contain: strict;
+}
+.activity-bg {
+  background: var(--work-bg);
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.activity-card.work .activity-bg { background: var(--work-bg); }
+.activity-card.play .activity-bg { background: var(--play-bg); }
+.activity-card.study .activity-bg { background: var(--study-bg); }
+.activity-card.exercise .activity-bg { background: var(--exercise-bg); }
+.activity-card.social .activity-bg { background: var(--social-bg); }
+.activity-card.self-care .activity-bg { background: var(--self-care-bg); }
+
+.activity-icon {
+  width: 78px; /* 48px */
+  aspect-ratio: 1;
+  margin-right: 1rem;
+  contain: strict;
+}
+
+.activity-content {
+  margin-top: 48px;
+  background: var(--navy-900);
+  border-radius:  var(--card-radius);
+  padding:  1.5rem; /* 32px 24px 24px 24px */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: auto;
+  position: relative;
+  z-index: 1;
+}
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.activity-title {
+  font-size: var(--fs-base);
+  font-weight: 500;
+}
+.activity-ellipsis {
+  width: 15px; 
+  aspect-ratio: 3 / 1;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.activity-ellipsis:hover {
+  opacity: 1;
+}
+.activity-stats {
+  display: grid;
+  gap: .5rem;
+}
+.activity-current {
+  font-size: var(--fs-card);
+  font-weight: 300;
+  line-height: 1;
+}
+.activity-previous {
+  color: var(--navy-200);
+  font-size: var(--fs-small);
+ 
+}
+
+@media (max-width: 64rem) { /* 1024px */
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content;
+    --gap: 1.5rem;
+  }
+  .profile-card {
+    grid-row: 1;
+    grid-column: 1;
+    
+    align-items: stretch;
+  }
+
+  .profile-header {
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .timeframe-selector {
+    grid-template-columns: repeat(3, min-content);
+    justify-content: center;
+    gap: .5rem;
+  }
+
+  .timeframe-btn {
+    width: 109px;
+    height: 21px;
+    contain: strict;
+    font-size: 1.125rem;
+    padding: 0;
+  }
+  .profile-img {
+    margin-bottom: 0;
+  }
+  .activity-cards {
+    grid-row: 2;
+    grid-column: 1;
+    grid-template-columns: repeat(3, 188px);
+    grid-template-rows: repeat(2, 213px);
+  }
+
+  .activity-content {
+    margin-top: 42px;
+  }
+
+  .activity-icon {
+    width: 66px;
+  }
+
+  .activity-previous {
+    font-size: 15px;
+  }
+  .activity-current {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 37.5rem) { /* 600px */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: unset;
+    padding: 82px 1.5rem;
+  }
+  .activity-cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 160px);
+   
+  }
+  .activity-content {
+    gap: .5rem;
+  }
+  .activity-stats {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+}

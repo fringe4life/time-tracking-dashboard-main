@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Time tracking dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="dashboard-grid">
+    <section class="profile-card">
+      <header class="profile-header">
+        <img src="images/image-jeremy.png" alt="Jeremy Robson" class="profile-img" />
+        <div class="profile-text">
+          <span class="profile-report">Report for</span>
+          <span class="profile-name">Jeremy Robson</span>
+        </div>
+      </header>
+      <nav class="timeframe-selector" aria-label="Select timeframe">
+        <button class="timeframe-btn" data-timeframe="daily">Daily</button>
+        <button class="timeframe-btn active" data-timeframe="weekly">Weekly</button>
+        <button class="timeframe-btn" data-timeframe="monthly">Monthly</button>
+      </nav>
+    </section>
+    <section class="activity-cards">
+      <article class="activity-card work">
+        <div class="activity-bg"><img src="images/icon-work.svg" alt="Work" class="activity-icon" /></div>
+        <div class="activity-content">
+          <header class="activity-header">
+            <span class="activity-title">Work</span>
+            <img src="images/icon-ellipsis.svg" alt="Options" class="activity-ellipsis" />
+          </header>
+          <div class="activity-stats">
+            <span class="activity-current">32hrs</span>
+            <span class="activity-previous">Last Week - 36hrs</span>
+          </div>
+        </div>
+      </article>
+      <article class="activity-card play">
+        <div class="activity-bg"><img src="images/icon-play.svg" alt="Play" class="activity-icon" /></div>
+        <div class="activity-content">
+          <header class="activity-header">
+            <span class="activity-title">Play</span>
+            <img src="images/icon-ellipsis.svg" alt="Options" class="activity-ellipsis" />
+          </header>
+          <div class="activity-stats">
+            <span class="activity-current">10hrs</span>
+            <span class="activity-previous">Last Week - 8hrs</span>
+          </div>
+        </div>
+      </article>
+      <article class="activity-card study">
+        <div class="activity-bg"><img src="images/icon-study.svg" alt="Study" class="activity-icon" /></div>
+        <div class="activity-content">
+          <header class="activity-header">
+            <span class="activity-title">Study</span>
+            <img src="images/icon-ellipsis.svg" alt="Options" class="activity-ellipsis" />
+          </header>
+          <div class="activity-stats">
+            <span class="activity-current">4hrs</span>
+            <span class="activity-previous">Last Week - 7hrs</span>
+          </div>
+        </div>
+      </article>
+      <article class="activity-card exercise">
+        <div class="activity-bg"><img src="images/icon-exercise.svg" alt="Exercise" class="activity-icon" /></div>
+        <div class="activity-content">
+          <header class="activity-header">
+            <span class="activity-title">Exercise</span>
+            <img src="images/icon-ellipsis.svg" alt="Options" class="activity-ellipsis" />
+          </header>
+          <div class="activity-stats">
+            <span class="activity-current">4hrs</span>
+            <span class="activity-previous">Last Week - 5hrs</span>
+          </div>
+        </div>
+      </article>
+      <article class="activity-card social">
+        <div class="activity-bg"><img src="images/icon-social.svg" alt="Social" class="activity-icon" /></div>
+        <div class="activity-content">
+          <header class="activity-header">
+            <span class="activity-title">Social</span>
+            <img src="images/icon-ellipsis.svg" alt="Options" class="activity-ellipsis" />
+          </header>
+          <div class="activity-stats">
+            <span class="activity-current">5hrs</span>
+            <span class="activity-previous">Last Week - 10hrs</span>
+          </div>
+        </div>
+      </article>
+      <article class="activity-card self-care">
+        <div class="activity-bg"><img src="images/icon-self-care.svg" alt="Self Care" class="activity-icon" /></div>
+        <div class="activity-content">
+          <header class="activity-header">
+            <span class="activity-title">Self Care</span>
+            <img src="images/icon-ellipsis.svg" alt="Options" class="activity-ellipsis" />
+          </header>
+          <div class="activity-stats">
+            <span class="activity-current">2hrs</span>
+            <span class="activity-previous">Last Week - 2hrs</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
