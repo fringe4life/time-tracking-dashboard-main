@@ -72,15 +72,16 @@ body {
   border-radius: var(--card-radius);
   
   overflow: hidden;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
 }
 
 .profile-header {
   background: var(--purple-600);
   padding: 2rem; 
-  display: flex;
-  flex-direction: column;
+ grid-row: span 2;
   align-items: flex-start;
-  border-radius: var(--card-radius) var(--card-radius) 0 0;
+  border-radius: var(--card-radius) ;
   gap: 2.5rem;
 }
 .profile-img {
@@ -217,15 +218,17 @@ body {
     grid-template-rows: min-content min-content;
     --gap: 1.5rem;
   }
+
   .profile-card {
     grid-row: 1;
     grid-column: 1;
-    
-    align-items: stretch;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
+ 
 
   .profile-header {
-    flex-direction: row;
+    display: flex;
     align-items: center;
     padding: 2rem;
     gap: 1.5rem;
@@ -287,6 +290,9 @@ body {
     grid-template-columns: repeat(2, max-content);
     justify-content: space-between;
     align-items: center;
+  }
+  .timeframe-selector {
+    padding: 24px 0;
   }
   
 }
