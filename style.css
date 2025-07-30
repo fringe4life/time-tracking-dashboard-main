@@ -83,7 +83,7 @@ body {
   
   border-radius: var(--card-radius) ;
   display: grid;
-  gap: 28px;
+  gap: 2rem;
 }
 .profile-img {
   border: 3px solid #fff;
