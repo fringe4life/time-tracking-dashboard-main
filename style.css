@@ -80,9 +80,10 @@ body {
   background: var(--purple-600);
   padding: 2rem; 
  grid-row: span 2;
-  align-items: flex-start;
+  
   border-radius: var(--card-radius) ;
-  gap: 2.5rem;
+  display: grid;
+  gap: 28px;
 }
 .profile-img {
   border: 3px solid #fff;
@@ -277,6 +278,10 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: unset;
     padding: 82px 1.5rem;
+  }
+
+  .profile-name {
+    font-size: var(--fs-title);
   }
   .activity-cards {
     grid-template-columns: 1fr;
