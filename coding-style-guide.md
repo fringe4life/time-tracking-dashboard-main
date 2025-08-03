@@ -75,6 +75,10 @@
 - **Use `inset: 0`** instead of `top: 0; left: 0; right: 0; bottom: 0;`
 - **Use shorthand properties** when possible (e.g., `background` instead of separate `background-*` properties)
 - **Prefer CSS variables** for design tokens (colors, spacing, etc.)
+- **Use locally scoped CSS variables** for component-specific values:
+  - Prefix with `--_` (e.g., `--_bg`, `--_fs`, `--_size`)
+  - Provide fallback values (e.g., `var(--_bg, var(--work-bg))`)
+  - Update in media queries by setting the variable (e.g., `--_bg: var(--play-bg)`)
 - **Prefer logical properties** over physical properties:
   - `inline-size` instead of `width`
   - `block-size` instead of `height`

@@ -43,9 +43,11 @@
   --card-radius: 1rem; /* 16px */
 
   /* Sizing tokens */
+  --size-xxs: 0.5rem;
   --size-xs: 0.75rem; /* 12px */
   --size-sm: 1rem; /* 16px */
   --size-md: 1.5rem; /* 24px */
+  --size-md-lg: 1.75rem;
   --size-lg: 2rem; /* 32px */
   --size-xl: 2.5rem; /* 40px */
   --size-2xl: 3rem; /* 48px */
@@ -82,12 +84,8 @@
 
   /* Responsive overrides - these will be updated in media queries */
   --current-spacing-lg: var(--spacing-lg);
-  --current-fs-card: var(--fs-card);
-  --current-fs-hero: var(--fs-hero);
-  --current-fs-small: var(--fs-small);
-  --current-activity-icon-size: var(--activity-icon-size);
-  --current-activity-content-offset: var(--activity-content-offset);
   --current-spacing-md: var(--spacing-md);
+
 }
 
 /* Reset and base styles */
@@ -167,7 +165,7 @@ body {
 }
 
 .profile-name {
-  font-size: var(--current-fs-hero);
+  font-size: var(--_fs, var(--fs-hero));
   font-weight: 300;
   line-height: 1.1;
 }
@@ -176,9 +174,9 @@ body {
 .timeframe-selector {
   display: grid;
   justify-items: flex-start;
-  gap: var(--current-spacing-lg);
-  padding-block: var(--spacing-xl);
-  padding-inline: var(--current-spacing-lg);
+  gap: var(--_gap, var(--spacing-lg));
+  padding-block: var(--_padding-block, var(--spacing-xl));
+  padding-inline: var(--_padding-inline, var(--spacing-lg));
   background: transparent;
 }
 
@@ -207,9 +205,7 @@ body {
 
 /* Individual activity cards */
 .activity-card {
-  position: relative;
   border-radius: var(--card-radius);
-  overflow: hidden;
   display: grid;
   contain: strict;
 }
@@ -232,19 +228,19 @@ body {
 .self-care { --_bg: var(--self-care-bg); }
 
 .activity-icon {
-  inline-size: var(--current-activity-icon-size);
+  inline-size: var(--_size, var(--activity-icon-size));
   aspect-ratio: 1;
   margin-inline-end: var(--spacing-sm);
   contain: strict;
 }
 
 .activity-content {
-  margin-block-start: var(--current-activity-content-offset);
+  margin-block-start: var(--_offset, var(--activity-content-offset));
   background: var(--navy-900);
   border-radius: var(--card-radius);
-  padding: var(--current-spacing-md);
+  padding: var(--_padding, var(--current-spacing-md));
   display: grid;
-  gap: var(--current-spacing-md);
+  gap: var(--_gap, var(--current-spacing-md));
   flex: auto;
   position: relative;
   z-index: 1;
@@ -275,14 +271,14 @@ body {
 }
 
 .activity-current {
-  font-size: var(--current-fs-card);
+  font-size: var(--_fs, var(--fs-card));
   font-weight: 300;
   line-height: 1.25;
 }
 
 .activity-previous {
   color: var(--navy-200);
-  font-size: var(--current-fs-small);
+  font-size: var(--_fs, var(--fs-small));
 }
 
 /* Responsive design */
@@ -300,15 +296,15 @@ body {
   .profile-header {
     display: flex;
     align-items: center;
-    /* gap: var(--spacing-md); */
+    gap: var(--spacing-md);
   }
 
   .timeframe-selector {
     grid-template-columns: repeat(3, min-content);
     justify-content: center;
-    gap: var(--spacing-xs);
-    padding-block: var(--spacing-lg);
-    padding-inline: 0;
+    --_gap: var(--spacing-xs);
+    --_padding-block: var(--spacing-lg);
+    --_padding-inline: 0;
   }
 
   .timeframe-btn {
@@ -328,19 +324,21 @@ body {
   }
 
   .activity-content {
-    --current-activity-content-offset: var(--activity-content-offset-tablet);
+    --_offset: var(--activity-content-offset-tablet);
+    --_gap: var(--size-sm);
+    /* --_padding: 22px 26px; */
   }
 
   .activity-icon {
-    --current-activity-icon-size: var(--activity-icon-size-tablet);
+    --_size: var(--activity-icon-size-tablet);
   }
 
   .activity-previous {
-    --current-fs-small: var(--fs-small);
+    --_fs: var(--fs-small);
   }
 
   .activity-current {
-    --current-fs-card: var(--fs-hero);
+    --_fs: var(--fs-hero);
   }
 }
 
@@ -351,7 +349,7 @@ body {
   }
 
   .profile-name {
-    --current-fs-hero: var(--fs-title);
+    --_fs: var(--fs-title);
   }
 
   .activity-cards {
@@ -359,7 +357,9 @@ body {
   }
 
   .activity-content {
-    --current-spacing-md: var(--spacing-xs);
+    --current-spacing-md: var(--size-md-lg) var(--size-md);
+    --_gap: var(--size-xxs);
+    --_padding: var(--size-md);
   }
 
   .activity-stats {
